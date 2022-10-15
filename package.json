@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "quagga": "^0.12.1"
+  }
+}
