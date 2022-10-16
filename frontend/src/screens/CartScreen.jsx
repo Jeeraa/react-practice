@@ -12,6 +12,7 @@ import axios from 'axios'
 import BarcodeScanner from '../components/BarcodeScanner'
 import { LinkContainer } from 'react-router-bootstrap'
 import logger from 'use-reducer-logger'
+import NavbarCashier from '../components/NavbarCashier'
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -71,11 +72,12 @@ export default function CartScreen() {
 
 	return (
 		<div>
+			<NavbarCashier />
 			<Helmet>
 				<title>Shopping Cart</title>
 			</Helmet>
-			<Link to="/barcode_scanner">
-				<div className="d-grid m-10">
+			<a href='/barcode_scanner'>
+				<div className="d-grid mt-sm-2 mb-sm-2">
 					<Button
 						type="button"
 						variant="primary"
@@ -85,7 +87,8 @@ export default function CartScreen() {
 						<i className="fas fa-barcode fa-5x"></i>
 					</Button>
 				</div>
-			</Link>
+			</a>
+			<a href='/additem'>
 			<div className="d-grid mt-sm-2 mb-sm-2">
 				<Button
 					type="button"
@@ -96,6 +99,7 @@ export default function CartScreen() {
 					เพิ่มสินค้า
 				</Button>
 			</div>
+			</a>
 			<Row>
 				<Col>
 					{cartItems.length === 0 ? (

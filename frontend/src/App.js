@@ -1,5 +1,6 @@
 // import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 import Navbar from 'react-bootstrap/Navbar'
@@ -18,33 +19,33 @@ function App() {
 	const { state } = useContext(Store)
 	const { cart } = state
 	return (
-		<BrowserRouter>
+		<Router>
 			<div className="d-flex flex-column site-container">
 				{/* <header>
 					<Navbar bg="dark" variant="dark">
-						<Container>
-							<LinkContainer to="/">
-								<Navbar.Brand>POSME</Navbar.Brand>
-							</LinkContainer>
-							<Nav className="me-auto">
-								<Link to="/cart" className="nav-link">
-									Cart
-									{cart.cartItems.length > 0 && (
-										<Badge pill bg="danger">
-											{cart.cartItems.reduce(
-												(a, c) => a + c.quantity,
-												0
-											)}
-										</Badge>
-									)}
-								</Link>
+					<Container>
+					<LinkContainer to="/">
+					<Navbar.Brand>POSME</Navbar.Brand>
+					</LinkContainer>
+					<Nav className="me-auto">
+					<Link to="/cart" className="nav-link">
+					Cart
+					{cart.cartItems.length > 0 && (
+						<Badge pill bg="danger">
+						{cart.cartItems.reduce(
+							(a, c) => a + c.quantity,
+							0
+							)}
+							</Badge>
+							)}
+							</Link>
 							</Nav>
-						</Container>
-					</Navbar>
-				</header> */}
+							</Container>
+							</Navbar>
+						</header> */}
 
 				<main>
-					<NavbarCashier/>
+					{/* <NavbarCashier /> */}
 					<Container className="mt-3">
 						<Routes>
 							<Route
@@ -57,12 +58,13 @@ function App() {
 								exact
 								element={<BarcodeScanner />}
 							/>
-							<Route path="/" element={<HomeScreen />} />
+							<Route path="/additem" element={<HomeScreen />} />
 						</Routes>
 					</Container>
+					
 				</main>
 			</div>
-		</BrowserRouter>
+			</Router>
 	)
 }
 
